@@ -13,10 +13,10 @@ jobs:
         with:
           node-version: '16'
       - name: Install dependencies
-      - uses: npm install
+      - run: npm install
       - name: Run Prettier
-      - uses: npm run format
+      - run: npm run format
       - name: Run ESLint
-      - uses: npm run lint
+      - run: npm run lint
       - name: Run tests
-      - uses: npm run test
+      - run: npm run test
