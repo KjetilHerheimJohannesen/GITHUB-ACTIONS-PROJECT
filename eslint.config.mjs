@@ -5,13 +5,20 @@ import { defineConfig } from 'eslint/config';
 export default defineConfig([
   {
     files: ['**/*.{js,mjs,cjs}'],
-    plugins: { js },
-    extends: ['js/recommended'],
+    plugins: ['js'],
+    extends: ['plugin:js/recommended'],
+    languageOptions: {
+      globals: globals.node,
+    },
   },
   {
     files: ['**/*.test.{js,mjs,cjs}'],
-    plugins: { js },
-    extends: ['js/recommended'],
+    plugins: ['js'],
+    extends: ['plugin:js/recommended'],
+    languageOptions: {
+      ...globals.node,
+      ...globals.jest,
+    },
     rules: { 'no-empty-vars': 'off' },
   },
   { files: ['**/*.js'], languageOptions: { sourceType: 'commonjs' } },
